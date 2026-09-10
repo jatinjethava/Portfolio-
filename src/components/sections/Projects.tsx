@@ -12,6 +12,7 @@ import {
   Wand2
 } from 'lucide-react';
 import { Project, ProjectCategory } from '../../types';
+import { toast } from 'sonner';
 
 interface ProjectsProps {
   projects: Project[];
@@ -32,6 +33,19 @@ export const Projects: React.FC<ProjectsProps> = ({ projects, onSelectProject })
   const filteredProjects = activeCategory === 'all'
     ? projects
     : projects.filter(p => p.category === activeCategory);
+
+  const handleLiveDemoClick = (e: React.MouseEvent<HTMLAnchorElement>, slug: string, url: string) => {
+    if (slug === 'vastra-verse-admin') {
+      e.preventDefault();
+      toast.info('Demo Credentials Required', {
+        description: 'Email: jatinjethava3125@gmail.com\nPassword: JatinJethava@123',
+        duration: 6000,
+      });
+      setTimeout(() => {
+        window.open(url, '_blank', 'noopener,noreferrer');
+      }, 1000);
+    }
+  };
 
   return (
     <section id="projects" className="py-24 relative bg-[#090b10] border-t border-white/[0.06]">
@@ -168,6 +182,7 @@ export const Projects: React.FC<ProjectsProps> = ({ projects, onSelectProject })
                           className="p-2 rounded-lg bg-white/[0.04] hover:bg-white/[0.08] text-zinc-400 hover:text-white transition-colors"
                           title="Live Demo Application"
                           aria-label="Live Demo"
+                          onClick={(e) => handleLiveDemoClick(e, project.slug, project.liveUrl!)}
                         >
                           <ExternalLink className="w-3.5 h-3.5" />
                         </a>

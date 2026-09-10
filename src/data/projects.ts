@@ -63,7 +63,7 @@ export const projectsData: Project[] = [
       'Learned how to integrate real-time features with Socket.io alongside REST APIs',
       'Understood the importance of payment signature verification for secure transactions'
     ],
-    githubUrl: 'https://github.com/jatinjethava',
+    githubUrl: 'https://github.com/jatinjethava/VASTRA-VERSE',
     liveUrl: 'https://vastra-verse.vercel.app/',
     date: '2026'
   },
@@ -126,7 +126,7 @@ export const projectsData: Project[] = [
       'Learned the full cycle of building a MERN application from scratch',
       'Understood the importance of structured REST API design and error handling'
     ],
-    githubUrl: 'https://github.com/jatinjethava',
+    githubUrl: 'https://github.com/jatinjethava/BunStory-website-MERN-',
     date: '2026'
   },
   {
@@ -249,7 +249,7 @@ export const projectsData: Project[] = [
       'Learned to build admin dashboards with complex CRUD operations',
       'Understood role-based access control patterns in full-stack applications'
     ],
-    githubUrl: 'https://github.com/jatinjethava',
+    githubUrl: 'https://github.com/jatinjethava/VASTRA-VERSE/tree/main/ADMIN',
     liveUrl: 'https://vastra-verse-admin.vercel.app/',
     date: '2026'
   },
@@ -308,7 +308,7 @@ export const projectsData: Project[] = [
       'Learned to create immersive scroll-driven 3D experiences',
       'Explored AI-assisted development for rapid prototyping of premium designs'
     ],
-    githubUrl: 'https://github.com/jatinjethava',
+    githubUrl: 'https://github.com/jatinjethava/Real-Estate-UI',
     liveUrl: 'https://build-architect.vercel.app/',
     date: '2026'
   },
@@ -368,7 +368,7 @@ export const projectsData: Project[] = [
       'Learned to create immersive, theme-driven websites with rich visual effects',
       'Explored AI-assisted development for rapid prototyping of complex interactive UIs'
     ],
-    githubUrl: 'https://github.com/jatinjethava',
+    githubUrl: 'https://github.com/jatinjethava/ANIMEX',
     liveUrl: 'https://animex-gold-sigma.vercel.app/',
     date: '2026'
   }

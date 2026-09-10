@@ -14,6 +14,7 @@ import { AdminDashboardModal } from './components/admin/AdminDashboardModal';
 import { getStoredProjects } from './services/api';
 import { Project, Service } from './types';
 import confetti from 'canvas-confetti';
+import { Toaster } from 'sonner';
 
 export default function App() {
   const [projects, setProjects] = useState<Project[]>([]);
@@ -57,6 +58,7 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-[#07090e] text-zinc-100 font-sans selection:bg-emerald-500 selection:text-black">
+      <Toaster richColors closeButton={true} duration={2000} />
       <Navbar onAdminClick={() => setIsAdminOpen(true)} />
 
       <main>
