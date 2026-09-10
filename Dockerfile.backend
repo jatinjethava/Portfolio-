@@ -1,0 +1,21 @@
+FROM node:22-alpine AS builder
+
+WORKDIR /app
+COPY package*.json ./
+RUN npm ci
+
+COPY . .
+RUN npm run build
+RUN npx esbuild server/src/server.ts --bundle --platform=node --target=node22 --outfile=dist-server/server.cjs
+
+FROM node:22-alpine AS runner
+WORKDIR /app
+
+ENV NODE_ENV=production
+ENV PORT=8100
+
+COPY --from=builder /app/dist ./dist
+COPY --from=builder /app/dist-server ./dist-server
+
+EXPOSE 8100
+CMD ["node", "dist-server/server.cjs"]
