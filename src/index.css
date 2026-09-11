@@ -11,6 +11,7 @@
     font-family: var(--font-sans);
     background-color: #090a0f;
     color: #e2e8f0;
+    min-width: 320px;
     overflow-x: hidden;
   }
 
@@ -84,7 +85,6 @@
   color: transparent;
 }
 
-/* Small screens get comfortable reading space without changing desktop rhythm. */
 @media (max-width: 639px) {
   section[id] {
     padding-top: 4rem;
