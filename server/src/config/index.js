@@ -6,8 +6,7 @@ dotenv_1.default.config();
 exports.config = {
     env: process.env.NODE_ENV || 'development',
     port: parseInt(process.env.PORT || '8100', 10),
-    mongoUri: process.env.MONGODB_URI,
-    redisUrl: process.env.REDIS_URL,
+    redisUrl: process.env.REDIS_URL || 'redis://localhost:6379',
     jwtSecret: process.env.JWT_SECRET,
     jwtExpiresIn: process.env.JWT_EXPIRES_IN,
     jwtRefreshSecret: process.env.JWT_REFRESH_SECRET,
