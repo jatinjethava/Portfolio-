@@ -14,9 +14,9 @@ export const projectsData: Project[] = [
     solution: 'Designed and developed a decoupled MERN stack application with React.js frontend, Express.js REST APIs, MongoDB data layer, Razorpay payment integration, Socket.io for real-time features, and Cloudinary for media.',
     keyFeatures: [
       'Secure JWT authentication with role-based authorization (User/Admin), OTP email verification via Nodemailer, and bcrypt password hashing',
-      'Razorpay payment gateway with cryptographic signature verification, webhook listeners, and integrated user wallet functionality',
-      'Real-time order tracking and live inventory updates using Socket.io WebSockets',
-      'Interactive and responsive storefront with multi-facet filtering, debounced search, persistent cart, and client-side state caching',
+      'Razorpay payment gateway with cryptographic signature verification and integrated user wallet functionality',
+      'Live Chat Support using socket.io',
+      'Implemented essential e-commerce features including product search, category filters, shopping cart, and responsive design',
       'Admin console with full CRUD for products, categories, discount coupons, hero banners, and order management',
       'Automated PDF invoice generation and Cloudinary CDN for optimized image delivery'
     ],
@@ -38,20 +38,20 @@ export const projectsData: Project[] = [
         'User registers/logs in via JWT authentication with OTP email verification',
         'Browses product catalog with filtering, search, and persistent cart sessions',
         'Proceeds to checkout with Razorpay payment integration and signature verification',
-        'Real-time order status updates delivered via Socket.io WebSockets',
+        'order status updates delivered via Notifications',
         'Admin manages products, categories, coupons, banners, and orders through the admin console'
       ],
       databaseSchemaNotes: 'MongoDB collections for Users, Products, Categories, Orders, Coupons, and Wallets. Mongoose schemas with validations, pre/post hooks, and virtual populates.',
       apiEndpoints: [
-        { method: 'POST', path: '/api/auth/register', description: 'User registration with OTP email verification' },
-        { method: 'POST', path: '/api/auth/login', description: 'JWT authentication with access and refresh tokens' },
-        { method: 'GET', path: '/api/products', description: 'Product catalog with filtering and pagination' },
-        { method: 'POST', path: '/api/orders/checkout', description: 'Razorpay payment and order creation' }
+        { method: 'POST', path: '/register', description: 'User registration with OTP email verification' },
+        { method: 'POST', path: '/login', description: 'JWT authentication with access and refresh tokens' },
+        { method: 'GET', path: '/products', description: 'Product catalog with filtering and pagination' },
+        { method: 'POST', path: '/orders/checkout', description: 'Razorpay payment and order creation' }
       ]
     },
     performanceNotes: [
       'Responsive UI across all devices with Tailwind CSS',
-      'Debounced search to reduce unnecessary API calls',
+      'Implemented efficient state management to improve application responsiveness',
       'Cloudinary CDN for fast, optimized image loading'
     ],
     securityNotes: [
@@ -76,7 +76,7 @@ export const projectsData: Project[] = [
     featured: true,
     coverImage: 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=1200&q=80',
     description: 'A full-stack food ordering web platform featuring responsive customer ordering flows, ingredient customization, dynamic pricing, backend REST APIs, and a dedicated kitchen management console for store managers.',
-    problem: 'Creating a complete food ordering system that handles menu management, customer ordering with customizations, cart persistence, and admin order processing — all with a smooth user experience.',
+    problem: 'Creating a complete food ordering system that handles menu management, customer ordering with customizations, cart persistence, and admin order processing.',
     solution: 'Built a responsive React.js frontend with Node.js/Express.js backend, MongoDB data layer, structured REST APIs for all operations, and a kitchen management console for store managers.',
     keyFeatures: [
       'Intuitive ordering interface with ingredient add-ons, dynamic tax calculations, and responsive design',
@@ -104,7 +104,7 @@ export const projectsData: Project[] = [
         'Adds items to cart with ingredient customizations and quantity selection',
         'Cart persists across sessions via LocalStorage sync',
         'Places order through backend API with form validation',
-        'Store manager views and updates order status through kitchen console'
+        'Order status updates'
       ],
       databaseSchemaNotes: 'MongoDB collections for MenuItems, Categories, Orders, and Users. Mongoose schemas with input validation and structured error responses.',
       apiEndpoints: [
@@ -274,7 +274,7 @@ export const projectsData: Project[] = [
       'Multilingual support (English, Hindi, Gujarati) with global office directory'
     ],
     techStack: {
-      frontend: ['HTML', 'CSS', 'JavaScript', 'Tailwind CSS'],
+      frontend: ['HTML', 'CSS', 'JavaScript', 'React', 'Tailwind CSS'],
       backend: ['Static Site'],
       database: ['N/A'],
       devops: ['Vercel', 'AI Tools']
@@ -334,7 +334,7 @@ export const projectsData: Project[] = [
       'Global search modal for characters, anime franchises, and power techniques'
     ],
     techStack: {
-      frontend: ['HTML', 'CSS', 'JavaScript', 'Tailwind CSS'],
+      frontend: ['HTML', 'CSS', 'JavaScript', 'Next JS', 'Tailwind CSS'],
       backend: ['Static Site'],
       database: ['N/A'],
       devops: ['Vercel', 'AI Tools']

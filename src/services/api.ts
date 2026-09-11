@@ -1,6 +1,7 @@
 import { Project, ContactSubmission, SystemStats } from '../types';
 import { projectsData } from '../data/projects';
 import { skillsData } from '../data/skills';
+import { toast } from 'sonner';
 
 const STORAGE_KEYS = {
   SUBMISSIONS: 'portfolio_contact_submissions_v1',
@@ -87,6 +88,7 @@ export const apiService = {
       redisSimulator.cacheHits++;
       const all = getStoredProjects();
       const filtered = category === 'all' ? all : all.filter(p => p.category === category);
+      console.log(all)
       return {
         data: filtered,
         fromCache: true,
@@ -244,16 +246,17 @@ export const apiService = {
 
   async adminLogin(secretKey: string): Promise<{ success: boolean; token?: string; error?: string }> {
     await new Promise(r => setTimeout(r, 350));
-    if (secretKey === 'admin123' || secretKey === 'mern-architect-2026' || secretKey.length >= 6) {
+    if (secretKey === 'JatinJethava@123' && secretKey.length >= 6) {
       const token = `jwt_mock_${btoa(`admin:${Date.now()}`)}`;
       try {
         localStorage.setItem(STORAGE_KEYS.ADMIN_TOKEN, token);
       } catch {
-        // fallback
+        toast.error("Please enable local storage");
+        return { success: false, error: 'Error storing token' };
       }
       return { success: true, token };
     }
-    return { success: false, error: 'Invalid admin credentials. (Try "admin123")' };
+    return { success: false, error: 'Invalid admin credentials.' };
   },
 
   isAdminAuthenticated(): boolean {
@@ -268,7 +271,7 @@ export const apiService = {
     try {
       localStorage.removeItem(STORAGE_KEYS.ADMIN_TOKEN);
     } catch {
-      // fallback
+      toast.error("Logout failed");
     }
   },
 
@@ -277,7 +280,7 @@ export const apiService = {
     try {
       localStorage.setItem(STORAGE_KEYS.SUBMISSIONS, JSON.stringify(list));
     } catch {
-      // fallback
+      toast.error("Please enable local storage");
     }
     return list;
   },
@@ -287,7 +290,7 @@ export const apiService = {
     try {
       localStorage.setItem(STORAGE_KEYS.SUBMISSIONS, JSON.stringify(list));
     } catch {
-      // fallback
+      toast.error("Please enable local storage");
     }
     return list;
   },
@@ -297,7 +300,7 @@ export const apiService = {
       localStorage.setItem(STORAGE_KEYS.PROJECTS, JSON.stringify(projects));
       this.invalidateProjectCache();
     } catch {
-      // fallback
+      toast.error("Please enable local storage");
     }
   },
 
@@ -307,7 +310,7 @@ export const apiService = {
       localStorage.removeItem(STORAGE_KEYS.SUBMISSIONS);
       this.invalidateProjectCache();
     } catch {
-      // fallback
+      toast.error("Please enable local storage");
     }
   },
 

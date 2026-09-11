@@ -11,6 +11,19 @@
     font-family: var(--font-sans);
     background-color: #090a0f;
     color: #e2e8f0;
+    overflow-x: hidden;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5.5rem;
+  }
+
+  button,
+  a,
+  input,
+  textarea {
+    -webkit-tap-highlight-color: transparent;
   }
 }
 
@@ -69,4 +82,21 @@
 .text-stroke-outline-accent {
   -webkit-text-stroke: 1.5px rgba(16, 185, 129, 0.6);
   color: transparent;
+}
+
+/* Small screens get comfortable reading space without changing desktop rhythm. */
+@media (max-width: 639px) {
+  section[id] {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+
+  .mobile-scroll-row {
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .mobile-scroll-row::-webkit-scrollbar {
+    display: none;
+  }
 }

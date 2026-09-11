@@ -1,11 +1,11 @@
 import React from 'react';
-import { 
-  Github, 
-  Linkedin, 
-  Mail, 
-  ArrowUp, 
-  Terminal, 
-  ShieldCheck, 
+import {
+  Github,
+  Linkedin,
+  Mail,
+  ArrowUp,
+  Terminal,
+  ShieldCheck,
   Heart
 } from 'lucide-react';
 import { profileData } from '../../data/profile';
@@ -23,8 +23,7 @@ export const Footer: React.FC<FooterProps> = ({ onAdminClick }) => {
     <footer className="bg-[#07090d] border-t border-white/[0.06] text-zinc-400 text-xs relative z-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8 pb-8 border-b border-white/[0.06]">
-          
-          {/* Brand Col */}
+
           <div className="md:col-span-2 space-y-3">
             <div className="flex items-center gap-2">
               <span className="font-mono text-base font-black tracking-tight text-white">
@@ -68,7 +67,6 @@ export const Footer: React.FC<FooterProps> = ({ onAdminClick }) => {
             </div>
           </div>
 
-          {/* Quick Links */}
           <div>
             <span className="text-xs font-mono uppercase tracking-wider text-white font-bold block mb-3">
               Navigation
@@ -95,7 +93,6 @@ export const Footer: React.FC<FooterProps> = ({ onAdminClick }) => {
             </ul>
           </div>
 
-          {/* System Telemetry & Admin */}
           <div>
             <span className="text-xs font-mono uppercase tracking-wider text-white font-bold block mb-3">
               System Health
@@ -109,7 +106,7 @@ export const Footer: React.FC<FooterProps> = ({ onAdminClick }) => {
                 P99 Latency: <span className="text-emerald-400">18ms</span> (Redis Cached)
               </div>
               <div className="text-zinc-400">
-                Stack: React 19 • Express • MongoDB • Redis
+                Stack: React 19 • Node.js • Express • MongoDB • Other Related Technologies
               </div>
               <div className="pt-2">
                 <button
@@ -124,7 +121,6 @@ export const Footer: React.FC<FooterProps> = ({ onAdminClick }) => {
 
         </div>
 
-        {/* Bottom copyright and back to top */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] font-mono">
           <div className="text-zinc-400">
             © {new Date().getFullYear()} {profileData.name}. Designed & Engineered with production-grade rigor.

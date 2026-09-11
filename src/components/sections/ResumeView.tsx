@@ -71,9 +71,6 @@ export const ResumeView: React.FC = () => {
     <section id="resume" className="py-10 sm:py-14 relative bg-[#07090e] border-t border-white/[0.06]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-        {/* ================================================================ */}
-        {/* Section Header & Redesigned Action Toolbar                       */}
-        {/* ================================================================ */}
         <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 mb-6 border-b border-white/[0.06] pb-5">
           <div>
             <div className="inline-flex items-center gap-2 text-emerald-400 font-mono text-xs uppercase tracking-widest mb-1">
@@ -88,9 +85,7 @@ export const ResumeView: React.FC = () => {
             </p>
           </div>
 
-          {/* Flexible Toolbar for All Devices */}
           <div className="flex flex-wrap sm:flex-nowrap items-center gap-2 w-full lg:w-auto">
-            {/* Layout Toggle: Two-Page Spread vs Single Stacked */}
             <div className="hidden md:flex items-center p-1 rounded-xl bg-zinc-900/90 border border-white/[0.08] text-xs font-mono shrink-0">
               <button
                 onClick={() => setLayoutMode('spread')}
@@ -118,7 +113,6 @@ export const ResumeView: React.FC = () => {
               </button>
             </div>
 
-            {/* View Mode Toggle: Dark vs Authentic Paper */}
             <div className="flex items-center p-1 rounded-xl bg-zinc-900/90 border border-white/[0.08] text-xs font-mono shrink-0">
               <button
                 onClick={() => setPaperTheme('dark')}
@@ -146,9 +140,7 @@ export const ResumeView: React.FC = () => {
               </button>
             </div>
 
-            {/* ── Action Buttons ── */}
             <div className="flex items-center gap-2 flex-1 sm:flex-initial">
-              {/* Direct static file link */}
               <a
                 id="resume-direct-pdf-link"
                 href="/Jatin_Jethava_Resume.pdf"
@@ -165,9 +157,6 @@ export const ResumeView: React.FC = () => {
           </div>
         </div>
 
-        {/* ================================================================ */}
-        {/* Download Success Toast with Progress Bar                         */}
-        {/* ================================================================ */}
         <AnimatePresence>
           {downloadSuccess && (
             <motion.div
@@ -202,7 +191,6 @@ export const ResumeView: React.FC = () => {
                   <ExternalLink className="w-3 h-3" />
                 </a>
               </div>
-              {/* Auto-dismiss progress bar */}
               <div className="h-[2px] bg-emerald-500/10">
                 <div
                   className="h-full bg-emerald-400/60 transition-none"
@@ -213,9 +201,6 @@ export const ResumeView: React.FC = () => {
           )}
         </AnimatePresence>
 
-        {/* ================================================================ */}
-        {/* Two-Page Resume Container with Refined Spacing                   */}
-        {/* ================================================================ */}
         <motion.div
           initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -227,16 +212,13 @@ export const ResumeView: React.FC = () => {
               : 'max-w-4xl mx-auto space-y-6 sm:space-y-8'
           }
         >
-          {/* ============================================================== */}
-          {/* PAGE 1 CARD (Sheet 1) */}
-          {/* ============================================================== */}
+
           <div
             className={`rounded-2xl transition-all duration-300 shadow-2xl relative print:p-0 print:border-none print:shadow-none print:bg-white print:text-black ${isPaper
               ? 'bg-[#ffffff] text-zinc-900 border border-zinc-200 shadow-zinc-950/40'
               : 'bg-[#0d0f15] text-zinc-100 border border-white/[0.1] shadow-black/60'
               } p-5 sm:p-6 lg:p-7`}
           >
-            {/* Top Sheet Header Strip */}
             <div className={`flex justify-between items-center pb-3 mb-4 border-b text-[11px] font-mono print:hidden ${isPaper ? 'border-zinc-200 text-zinc-500' : 'border-white/[0.06] text-zinc-400'
               }`}>
               <span className={`flex items-center gap-2 font-medium ${isPaper ? 'text-emerald-700' : 'text-emerald-400'
@@ -247,7 +229,6 @@ export const ResumeView: React.FC = () => {
               <span className="font-semibold">Page 1 of 2</span>
             </div>
 
-            {/* Candidate Header: Name, Title, Contact */}
             <div className={`pb-4 mb-5 border-b-2 ${isPaper ? 'border-zinc-800' : 'border-zinc-700'
               }`}>
               <h1 className={`text-2xl sm:text-3xl font-black font-display tracking-tight uppercase ${isPaper ? 'text-zinc-900' : 'text-white'
@@ -284,7 +265,6 @@ export const ResumeView: React.FC = () => {
               </div>
             </div>
 
-            {/* 1. PROFESSIONAL SUMMARY */}
             <div className="mb-5 sm:mb-6">
               <div className={`border-b pb-1 mb-2.5 ${isPaper ? 'border-zinc-700' : 'border-zinc-700'
                 }`}>
@@ -299,7 +279,6 @@ export const ResumeView: React.FC = () => {
               </p>
             </div>
 
-            {/* 2. TECHNICAL SKILLS */}
             <div className="mb-5 sm:mb-6">
               <div className={`border-b pb-1 mb-3 ${isPaper ? 'border-zinc-700' : 'border-zinc-700'
                 }`}>
@@ -310,7 +289,6 @@ export const ResumeView: React.FC = () => {
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-y-2.5 gap-x-6 sm:gap-x-8 text-xs sm:text-[13px] font-mono">
-                {/* Column 1 */}
                 <div className="space-y-2">
                   <div className={`flex items-center gap-2 ${isPaper ? 'text-zinc-800' : 'text-zinc-300'}`}>
                     <span className={`font-bold ${isPaper ? 'text-zinc-900' : 'text-emerald-400'}`}>-&gt;</span>
@@ -342,7 +320,6 @@ export const ResumeView: React.FC = () => {
                   </div>
                 </div>
 
-                {/* Column 2 */}
                 <div className="space-y-2">
                   <div className={`flex items-center gap-2 ${isPaper ? 'text-zinc-800' : 'text-zinc-300'}`}>
                     <span className={`font-bold ${isPaper ? 'text-zinc-900' : 'text-emerald-400'}`}>-&gt;</span>
@@ -370,7 +347,6 @@ export const ResumeView: React.FC = () => {
                   </div>
                 </div>
 
-                {/* Column 3 */}
                 <div className="space-y-2">
                   <div className={`flex items-center gap-2 ${isPaper ? 'text-zinc-800' : 'text-zinc-300'}`}>
                     <span className={`font-bold ${isPaper ? 'text-zinc-900' : 'text-emerald-400'}`}>-&gt;</span>
@@ -400,7 +376,6 @@ export const ResumeView: React.FC = () => {
               </div>
             </div>
 
-            {/* 3. EDUCATION */}
             <div className="mb-5 sm:mb-6">
               <div className={`border-b pb-1 mb-3 ${isPaper ? 'border-zinc-700' : 'border-zinc-700'
                 }`}>
@@ -411,7 +386,6 @@ export const ResumeView: React.FC = () => {
               </div>
 
               <div className="space-y-3 text-xs sm:text-[13px]">
-                {/* Degree 1 */}
                 <div className="space-y-0.5">
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
                     <strong className={`font-bold ${isPaper ? 'text-zinc-900' : 'text-white'}`}>
@@ -426,7 +400,6 @@ export const ResumeView: React.FC = () => {
                   </p>
                 </div>
 
-                {/* Degree 2 */}
                 <div className="space-y-0.5">
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
                     <strong className={`font-bold ${isPaper ? 'text-zinc-900' : 'text-white'}`}>
@@ -441,7 +414,6 @@ export const ResumeView: React.FC = () => {
                   </p>
                 </div>
 
-                {/* Degree 3 */}
                 <div className="space-y-0.5">
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
                     <strong className={`font-bold ${isPaper ? 'text-zinc-900' : 'text-white'}`}>
@@ -458,7 +430,6 @@ export const ResumeView: React.FC = () => {
               </div>
             </div>
 
-            {/* 4. LANGUAGES */}
             <div>
               <div className={`border-b pb-1 mb-2.5 ${isPaper ? 'border-zinc-700' : 'border-zinc-700'
                 }`}>
@@ -473,23 +444,20 @@ export const ResumeView: React.FC = () => {
               </p>
             </div>
 
-            {/* Page 1 Bottom Footer */}
             <div className={`pt-4 mt-5 border-t flex justify-end text-[11px] font-mono ${isPaper ? 'border-zinc-200 text-zinc-500' : 'border-white/[0.06] text-zinc-500'
               }`}>
               <span>Page 1 of 2</span>
             </div>
           </div>
 
-          {/* ============================================================== */}
-          {/* PAGE 2 CARD (Sheet 2) */}
-          {/* ============================================================== */}
+
           <div
             className={`rounded-2xl transition-all duration-300 shadow-2xl relative print:p-0 print:border-none print:shadow-none print:bg-white print:text-black ${isPaper
               ? 'bg-[#ffffff] text-zinc-900 border border-zinc-200 shadow-zinc-950/40'
               : 'bg-[#0d0f15] text-zinc-100 border border-white/[0.1] shadow-black/60'
               } p-5 sm:p-6 lg:p-7`}
           >
-            {/* Top Sheet Header Strip */}
+
             <div className={`flex justify-between items-center pb-3 mb-4 border-b text-[11px] font-mono print:hidden ${isPaper ? 'border-zinc-200 text-zinc-500' : 'border-white/[0.06] text-zinc-400'
               }`}>
               <span className={`flex items-center gap-2 font-medium ${isPaper ? 'text-emerald-700' : 'text-emerald-400'
@@ -500,7 +468,6 @@ export const ResumeView: React.FC = () => {
               <span className="font-semibold">Page 2 of 2</span>
             </div>
 
-            {/* TECHNICAL PROJECTS */}
             <div className="mb-6 sm:mb-7">
               <div className={`border-b pb-1 mb-4 ${isPaper ? 'border-zinc-700' : 'border-zinc-700'
                 }`}>
@@ -510,7 +477,6 @@ export const ResumeView: React.FC = () => {
                 </h2>
               </div>
 
-              {/* Project 1: Vastra Verse */}
               <div className="space-y-2 mb-6">
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
                   <h3 className={`text-sm sm:text-base font-bold ${isPaper ? 'text-zinc-900' : 'text-white'
@@ -548,7 +514,7 @@ export const ResumeView: React.FC = () => {
                   </li>
                   <li className="flex items-start gap-2.5">
                     <span className={`font-bold flex-shrink-0 ${isPaper ? 'text-zinc-900' : 'text-emerald-400'}`}>-&gt;</span>
-                    <span>Engineered real-time features using Socket.io for immediate order status notifications and dynamic inventory tracking.</span>
+                    <span>Engineered real-time features using Socket.io for Live Chat.</span>
                   </li>
                   <li className="flex items-start gap-2.5">
                     <span className={`font-bold flex-shrink-0 ${isPaper ? 'text-zinc-900' : 'text-emerald-400'}`}>-&gt;</span>
@@ -561,7 +527,6 @@ export const ResumeView: React.FC = () => {
                 </ul>
               </div>
 
-              {/* Project 2: BunStory */}
               <div className="space-y-2">
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
                   <h3 className={`text-sm sm:text-base font-bold ${isPaper ? 'text-zinc-900' : 'text-white'
@@ -601,7 +566,6 @@ export const ResumeView: React.FC = () => {
               </div>
             </div>
 
-            {/* KEY COMPETENCIES & DEVELOPMENT PRACTICES */}
             <div className="mb-6 sm:mb-7">
               <div className={`border-b pb-1 mb-3.5 ${isPaper ? 'border-zinc-700' : 'border-zinc-700'
                 }`}>
@@ -628,7 +592,6 @@ export const ResumeView: React.FC = () => {
               </ul>
             </div>
 
-            {/* DECLARATION */}
             <div className="pt-1">
               <div className={`border-b pb-1 mb-2.5 ${isPaper ? 'border-zinc-700' : 'border-zinc-700'
                 }`}>
@@ -643,16 +606,12 @@ export const ResumeView: React.FC = () => {
               </p>
             </div>
 
-            {/* Page 2 Bottom Footer */}
             <div className={`pt-4 mt-5 border-t flex justify-end text-[11px] font-mono ${isPaper ? 'border-zinc-200 text-zinc-500' : 'border-white/[0.06] text-zinc-500'
               }`}>
               <span>Page 2 of 2</span>
             </div>
           </div>
         </motion.div>
-
-
-
       </div>
     </section>
   );

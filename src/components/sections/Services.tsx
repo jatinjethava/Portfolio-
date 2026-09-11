@@ -1,16 +1,16 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { 
-  Layers, 
-  ShoppingBag, 
-  LayoutDashboard, 
-  Cpu, 
-  Zap, 
-  Globe, 
-  ArrowRight, 
-  Check, 
-  Clock, 
-  Sparkles 
+import {
+  Layers,
+  ShoppingBag,
+  LayoutDashboard,
+  Cpu,
+  Zap,
+  Globe,
+  ArrowRight,
+  Check,
+  Clock,
+  Sparkles
 } from 'lucide-react';
 import { servicesData } from '../../data/services';
 import { Service } from '../../types';
@@ -35,8 +35,7 @@ export const Services: React.FC<ServicesProps> = ({ onSelectService }) => {
   return (
     <section id="services" className="py-24 relative bg-[#0a0c10] border-t border-white/[0.06]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        {/* Section Header */}
+
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12">
           <div>
             <div className="inline-flex items-center gap-2 text-emerald-400 font-mono text-xs uppercase tracking-widest mb-2">
@@ -52,7 +51,6 @@ export const Services: React.FC<ServicesProps> = ({ onSelectService }) => {
           </div>
         </div>
 
-        {/* Services Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {servicesData.map((service) => {
             const Icon = getIcon(service.iconName);
@@ -66,7 +64,6 @@ export const Services: React.FC<ServicesProps> = ({ onSelectService }) => {
                 className="p-6 rounded-2xl bg-white/[0.02] border border-white/[0.08] hover:border-emerald-500/30 hover:bg-white/[0.035] transition-all flex flex-col justify-between group"
               >
                 <div>
-                  {/* Icon & Timeline */}
                   <div className="flex items-center justify-between mb-4">
                     <div className="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/25 flex items-center justify-center text-emerald-400 group-hover:bg-emerald-500/20 transition-colors">
                       <Icon className="w-5 h-5" />
@@ -85,7 +82,6 @@ export const Services: React.FC<ServicesProps> = ({ onSelectService }) => {
                     {service.summary}
                   </p>
 
-                  {/* Deliverables Checklist */}
                   <div className="space-y-2 mb-6">
                     <span className="text-[10px] font-mono uppercase tracking-wider text-zinc-400 block">
                       Scope Deliverables:
@@ -99,7 +95,6 @@ export const Services: React.FC<ServicesProps> = ({ onSelectService }) => {
                   </div>
                 </div>
 
-                {/* Tech & Inquiry CTA */}
                 <div className="pt-4 border-t border-white/[0.06] flex items-center justify-between">
                   <div className="flex flex-wrap gap-1">
                     {service.techStack.slice(0, 3).map((t, idx) => (

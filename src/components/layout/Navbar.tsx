@@ -27,7 +27,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenAdmin, onAdminClick, activ
     { label: 'About', href: '#about' },
     { label: 'Skills', href: '#skills' },
     { label: 'Projects', href: '#projects' },
-    { label: 'Services', href: '#services' },
+    // { label: 'Services', href: '#services' },
     { label: 'Architecture', href: '#architecture' },
     { label: 'Resume', href: '#resume' },
     { label: 'Contact', href: '#contact' },

@@ -79,7 +79,7 @@ export default function App() {
 
         <ArchitectureExplorer />
 
-        <Services onSelectService={handleSelectService} />
+        {/* <Services onSelectService={handleSelectService} /> */}
 
         <ResumeView />
 

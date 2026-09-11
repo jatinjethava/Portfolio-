@@ -36,8 +36,8 @@ export const Hero: React.FC<HeroProps> = ({
 
   return (
     <section id="top" className="relative min-h-[92vh] pt-24 pb-16 flex flex-col justify-between overflow-hidden bg-[#090a0f] bg-grid-pattern">
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-emerald-500/10 blur-[130px] rounded-full pointer-events-none -z-10" />
-      <div className="absolute top-1/3 right-10 w-[400px] h-[250px] bg-blue-500/5 blur-[120px] rounded-full pointer-events-none -z-10" />
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[min(600px,120vw)] h-[350px] bg-emerald-500/10 blur-[130px] rounded-full pointer-events-none -z-10" />
+      <div className="absolute top-1/3 right-10 w-[min(400px,100vw)] h-[250px] bg-blue-500/5 blur-[120px] rounded-full pointer-events-none -z-10" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex-1 flex flex-col justify-center relative z-10">
 
@@ -100,10 +100,10 @@ export const Hero: React.FC<HeroProps> = ({
               transition={{ duration: 0.6, delay: 0.2 }}
               className="mb-5 select-none"
             >
-              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-black font-display uppercase tracking-tight leading-[0.95] text-white whitespace-nowrap">
+              <h1 className="text-3xl min-[380px]:text-4xl sm:text-5xl md:text-6xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-black font-display uppercase tracking-tight leading-[0.95] text-white sm:whitespace-nowrap">
                 Full-Stack
               </h1>
-              <div className="text-4xl sm:text-5xl md:text-6xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-black font-display uppercase tracking-tight leading-[0.95] text-stroke-outline hover:text-stroke-outline-accent transition-all duration-300 cursor-default whitespace-nowrap">
+              <div className="text-3xl min-[380px]:text-4xl sm:text-5xl md:text-6xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-black font-display uppercase tracking-tight leading-[0.95] text-stroke-outline hover:text-stroke-outline-accent transition-all duration-300 cursor-default sm:whitespace-nowrap">
                 &amp; Architect
               </div>
             </motion.div>
@@ -126,12 +126,12 @@ export const Hero: React.FC<HeroProps> = ({
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="flex flex-wrap items-center gap-3.5"
+              className="flex flex-col sm:flex-row sm:flex-wrap sm:items-center gap-3 w-full"
             >
               <button
                 id="hero-cta-projects"
                 onClick={onExploreProjects}
-                className="group flex items-center gap-2 px-6 py-3 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-black font-semibold text-sm shadow-xl shadow-emerald-500/25 transition-all duration-200 hover:scale-[1.02] active:scale-[0.98]"
+                className="group flex w-full sm:w-auto items-center justify-center gap-2 px-6 py-3 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-black font-semibold text-sm shadow-xl shadow-emerald-500/25 transition-all duration-200 hover:scale-[1.02] active:scale-[0.98]"
               >
                 <span>View Production Work</span>
                 <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
@@ -140,7 +140,7 @@ export const Hero: React.FC<HeroProps> = ({
               <button
                 id="hero-cta-architecture"
                 onClick={onExploreArchitecture}
-                className="flex items-center gap-2 px-5 py-3 rounded-xl bg-white/[0.04] hover:bg-white/[0.08] text-zinc-200 hover:text-white border border-white/[0.1] font-medium text-sm transition-colors"
+                className="flex w-full sm:w-auto items-center justify-center gap-2 px-5 py-3 rounded-xl bg-white/[0.04] hover:bg-white/[0.08] text-zinc-200 hover:text-white border border-white/[0.1] font-medium text-sm transition-colors"
               >
                 <Server className="w-4 h-4 text-emerald-400" />
                 <span>Explore Architecture</span>
@@ -149,14 +149,14 @@ export const Hero: React.FC<HeroProps> = ({
               <button
                 id="hero-cta-resume"
                 onClick={onDownloadResume}
-                className="flex items-center gap-2 px-4 py-3 rounded-xl bg-zinc-900/60 hover:bg-zinc-800 text-zinc-300 hover:text-white border border-white/[0.08] text-sm font-medium transition-colors"
+                className="flex w-full sm:w-auto items-center justify-center gap-2 px-4 py-3 rounded-xl bg-zinc-900/60 hover:bg-zinc-800 text-zinc-300 hover:text-white border border-white/[0.08] text-sm font-medium transition-colors"
                 title="Download verified resume (Jatin_Jethava_Resume.pdf)"
               >
                 <Download className="w-4 h-4 text-emerald-400" />
                 <span>Download Resume</span>
               </button>
 
-              <div className="flex items-center gap-2 ml-1">
+              <div className="flex items-center gap-2 self-start sm:ml-1">
                 <a
                   href={profileData.socialLinks.github}
                   target="_blank"
@@ -228,7 +228,7 @@ export const Hero: React.FC<HeroProps> = ({
                     </div>
                     <div className="text-right">
                       <span className="text-[10px] font-mono text-zinc-400">EXP</span>
-                      <p className="text-xs font-bold text-white">{profileData.experienceYears}+ Years</p>
+                      <p className="text-xs font-bold text-white">{typeof (profileData.experienceYears) === "number" ? profileData.experienceYears + " Years" : profileData.experienceYears}</p>
                     </div>
                   </div>
                 </div>
@@ -273,11 +273,11 @@ export const Hero: React.FC<HeroProps> = ({
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.5 }}
-          className="mt-14 pt-8 border-t border-white/[0.08] grid grid-cols-2 sm:grid-cols-4 gap-6 lg:gap-8"
+          className="mt-12 sm:mt-14 pt-6 sm:pt-8 border-t border-white/[0.08] grid grid-cols-2 sm:grid-cols-4 gap-5 sm:gap-6 lg:gap-8"
         >
           {profileData.stats.map((stat, idx) => (
             <div key={idx} className="flex flex-col">
-              <span className="text-3xl sm:text-4xl font-black font-display text-white tracking-tight">
+              <span className="text-lg min-[400px]:text-2xl sm:text-4xl font-black font-display text-white tracking-tight break-words">
                 {stat.value}
               </span>
               <span className="text-xs sm:text-sm font-semibold text-zinc-300 mt-1">
@@ -294,5 +294,4 @@ export const Hero: React.FC<HeroProps> = ({
     </section>
   );
 };
-
 

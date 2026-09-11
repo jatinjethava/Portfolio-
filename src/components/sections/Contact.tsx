@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
-import { 
-  Mail, 
-  Send, 
-  Copy, 
-  Check, 
-  Clock, 
-  ShieldCheck, 
-  AlertCircle, 
+import {
+  Mail,
+  Send,
+  Copy,
+  Check,
+  Clock,
+  ShieldCheck,
+  AlertCircle,
   Sparkles,
   MapPin
 } from 'lucide-react';
@@ -107,12 +107,10 @@ export const Contact: React.FC<ContactProps> = ({ initialSubject = '' }) => {
 
   return (
     <section id="contact" className="py-24 relative bg-[#090b10] border-t border-white/[0.06]">
-      {/* Background glow */}
       <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-emerald-500/5 blur-[150px] rounded-full pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        {/* Section Header */}
+
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12">
           <div>
             <div className="inline-flex items-center gap-2 text-emerald-400 font-mono text-xs uppercase tracking-widest mb-2">
@@ -123,22 +121,21 @@ export const Contact: React.FC<ContactProps> = ({ initialSubject = '' }) => {
               Let's Discuss Architecture & Engineering
             </h2>
             <p className="text-zinc-400 text-sm sm:text-base mt-2 max-w-2xl">
-              Currently open to senior engineering roles, high-throughput MERN consulting, and architecture reviews.
+              Currently open to Entry Level roles, MERN consulting and Architecture reviews.
             </p>
           </div>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
-          
-          {/* Left Column: Direct info, SLA & Availability */}
+
           <div className="lg:col-span-5 space-y-6">
             <div className="p-6 rounded-2xl bg-white/[0.02] border border-white/[0.08] space-y-6">
               <div>
                 <span className="text-xs font-mono uppercase tracking-wider text-zinc-400 block mb-1">
                   Direct Inbox
                 </span>
-                <div className="flex items-center justify-between p-3 rounded-xl bg-white/[0.03] border border-white/[0.06] mt-2">
-                  <span className="text-xs sm:text-sm font-mono text-white select-all">
+                <div className="flex items-center justify-between gap-2 p-3 rounded-xl bg-white/[0.03] border border-white/[0.06] mt-2">
+                  <span className="min-w-0 break-all text-xs sm:text-sm font-mono text-white select-all">
                     {profileData.socialLinks.email}
                   </span>
                   <button
@@ -152,7 +149,6 @@ export const Contact: React.FC<ContactProps> = ({ initialSubject = '' }) => {
                 </div>
               </div>
 
-              {/* Availability & Response SLA */}
               <div className="space-y-3 pt-4 border-t border-white/[0.06] text-xs">
                 <div className="flex items-center gap-3">
                   <div className="p-2 rounded-lg bg-emerald-500/10 text-emerald-400">
@@ -186,7 +182,6 @@ export const Contact: React.FC<ContactProps> = ({ initialSubject = '' }) => {
               </div>
             </div>
 
-            {/* Quick Status Note */}
             <div className="p-4 rounded-xl bg-emerald-950/20 border border-emerald-500/20 text-xs text-emerald-300 flex items-center gap-2.5">
               <span className="relative flex h-2.5 w-2.5">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
@@ -196,10 +191,9 @@ export const Contact: React.FC<ContactProps> = ({ initialSubject = '' }) => {
             </div>
           </div>
 
-          {/* Right Column: Interactive Contact Form */}
           <div className="lg:col-span-7">
             <div className="p-6 sm:p-8 rounded-3xl bg-[#0d0f15] border border-white/[0.1] shadow-2xl">
-              
+
               {submitted ? (
                 <motion.div
                   initial={{ opacity: 0, scale: 0.95 }}
@@ -222,17 +216,17 @@ export const Contact: React.FC<ContactProps> = ({ initialSubject = '' }) => {
 
                   {submissionMeta?.submissionId && (
                     <div className="max-w-md mx-auto p-3 rounded-xl bg-black/60 border border-white/[0.08] text-left text-xs font-mono space-y-1.5">
-                      <div className="flex items-center justify-between text-zinc-400">
+                      <div className="flex items-start justify-between gap-3 text-zinc-400">
                         <span>Ticket ID:</span>
                         <span className="text-emerald-400 font-bold">{submissionMeta.submissionId}</span>
                       </div>
-                      <div className="flex items-center justify-between text-zinc-400">
+                      <div className="flex items-start justify-between gap-3 text-zinc-400">
                         <span>Transport Engine:</span>
                         <span className="text-zinc-200">Nodemailer (SMTP / Pool)</span>
                       </div>
-                      <div className="flex items-center justify-between text-zinc-400">
+                      <div className="flex items-start justify-between gap-3 text-zinc-400">
                         <span>Target Recipient:</span>
-                        <span className="text-zinc-200">jatinjethava3125@gmail.com</span>
+                        <span className="min-w-0 break-all text-right text-zinc-200">jatinjethava3125@gmail.com</span>
                       </div>
                       {submissionMeta?.mailResult?.previewUrl && (
                         <div className="pt-2 mt-2 border-t border-white/[0.08] text-center">
@@ -272,7 +266,6 @@ export const Contact: React.FC<ContactProps> = ({ initialSubject = '' }) => {
                   )}
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    {/* Name */}
                     <div>
                       <label htmlFor="contact-name" className="block text-xs font-mono text-zinc-400 mb-1.5">
                         Your Name *
@@ -288,7 +281,6 @@ export const Contact: React.FC<ContactProps> = ({ initialSubject = '' }) => {
                       {errors.name && <p className="text-[11px] text-red-400 mt-1">{errors.name}</p>}
                     </div>
 
-                    {/* Email */}
                     <div>
                       <label htmlFor="contact-email" className="block text-xs font-mono text-zinc-400 mb-1.5">
                         Your Email *
@@ -305,7 +297,6 @@ export const Contact: React.FC<ContactProps> = ({ initialSubject = '' }) => {
                     </div>
                   </div>
 
-                  {/* Subject */}
                   <div>
                     <label htmlFor="contact-subject" className="block text-xs font-mono text-zinc-400 mb-1.5">
                       Subject / Project Scope *
@@ -321,7 +312,6 @@ export const Contact: React.FC<ContactProps> = ({ initialSubject = '' }) => {
                     {errors.subject && <p className="text-[11px] text-red-400 mt-1">{errors.subject}</p>}
                   </div>
 
-                  {/* Message */}
                   <div>
                     <label htmlFor="contact-message" className="block text-xs font-mono text-zinc-400 mb-1.5">
                       Message & Architectural Requirements *
@@ -337,7 +327,6 @@ export const Contact: React.FC<ContactProps> = ({ initialSubject = '' }) => {
                     {errors.message && <p className="text-[11px] text-red-400 mt-1">{errors.message}</p>}
                   </div>
 
-                  {/* Submit Button */}
                   <button
                     type="submit"
                     id="submit-contact-form"
@@ -357,7 +346,7 @@ export const Contact: React.FC<ContactProps> = ({ initialSubject = '' }) => {
                     )}
                   </button>
 
-                  <div className="pt-1 flex items-center justify-between text-[11px] font-mono text-zinc-500">
+                  <div className="pt-1 flex flex-wrap items-center justify-between gap-x-2 gap-y-1 text-[11px] font-mono text-zinc-500">
                     <span className="flex items-center gap-1">
                       <ShieldCheck className="w-3 h-3 text-emerald-400/80" />
                       <span>Nodemailer SMTP Pool</span>

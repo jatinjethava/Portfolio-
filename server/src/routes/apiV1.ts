@@ -136,7 +136,7 @@ apiV1Router.get('/mail/status', async (_req: Request, res: Response) => {
 
 apiV1Router.post('/auth/login', rateLimiter(10, 60), (req: Request, res: Response) => {
   const { password } = req.body || {};
-  if (password === 'admin123' || password === 'jatinjethava') {
+  if (password === 'JatinJethava@123') {
     return res.json({
       success: true,
       token: `jwt_${Buffer.from(`admin:${Date.now()}`).toString('base64')}`,

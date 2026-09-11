@@ -35,10 +35,10 @@ export const About: React.FC = () => {
             </h2>
           </div>
 
-          <div className="flex items-center gap-1.5 mt-4 sm:mt-0 p-1 bg-white/[0.04] border border-white/[0.08] rounded-xl">
+          <div className="mobile-scroll-row flex w-full sm:w-auto items-center gap-1.5 mt-4 sm:mt-0 p-1 overflow-x-auto bg-white/[0.04] border border-white/[0.08] rounded-xl">
             <button
               onClick={() => setActiveTab('philosophy')}
-              className={`px-3.5 py-1.5 rounded-lg text-xs font-medium transition-all ${activeTab === 'philosophy'
+              className={`shrink-0 px-3.5 py-1.5 rounded-lg text-xs font-medium transition-all ${activeTab === 'philosophy'
                 ? 'bg-emerald-500 text-black font-semibold shadow-md'
                 : 'text-zinc-400 hover:text-white'
                 }`}
@@ -47,7 +47,7 @@ export const About: React.FC = () => {
             </button>
             <button
               onClick={() => setActiveTab('timeline')}
-              className={`px-3.5 py-1.5 rounded-lg text-xs font-medium transition-all ${activeTab === 'timeline'
+              className={`shrink-0 px-3.5 py-1.5 rounded-lg text-xs font-medium transition-all ${activeTab === 'timeline'
                 ? 'bg-emerald-500 text-black font-semibold shadow-md'
                 : 'text-zinc-400 hover:text-white'
                 }`}
@@ -56,7 +56,7 @@ export const About: React.FC = () => {
             </button>
             <button
               onClick={() => setActiveTab('certifications')}
-              className={`px-3.5 py-1.5 rounded-lg text-xs font-medium transition-all ${activeTab === 'certifications'
+              className={`shrink-0 px-3.5 py-1.5 rounded-lg text-xs font-medium transition-all ${activeTab === 'certifications'
                 ? 'bg-emerald-500 text-black font-semibold shadow-md'
                 : 'text-zinc-400 hover:text-white'
                 }`}

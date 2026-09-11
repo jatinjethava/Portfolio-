@@ -49,7 +49,7 @@ export const Skills: React.FC = () => {
     <section id="skills" className="py-24 relative bg-[#0a0c10] border-t border-white/[0.06]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-10">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12">
           <div>
             <div className="inline-flex items-center gap-2 text-emerald-400 font-mono text-xs uppercase tracking-widest mb-2">
               <Layers className="w-3.5 h-3.5" />
@@ -63,7 +63,7 @@ export const Skills: React.FC = () => {
             </p>
           </div>
 
-          <div className="flex flex-wrap gap-2 mt-6 md:mt-0">
+          <div className="mobile-scroll-row flex w-full md:w-auto flex-nowrap overflow-x-auto gap-2 mt-6 md:mt-0 pb-1">
             {categories.map((cat) => {
               const Icon = cat.icon;
               const isSelected = selectedCategory === cat.id;
@@ -72,7 +72,7 @@ export const Skills: React.FC = () => {
                   key={cat.id}
                   id={`skill-filter-${cat.id}`}
                   onClick={() => setSelectedCategory(cat.id)}
-                  className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs font-medium transition-all ${isSelected
+                className={`flex shrink-0 items-center gap-1.5 px-3.5 py-2 md:py-1.5 rounded-xl text-xs font-medium transition-all ${isSelected
                     ? 'bg-emerald-500 text-black font-semibold shadow-lg shadow-emerald-500/20'
                     : 'bg-white/[0.03] text-zinc-400 hover:text-white border border-white/[0.08] hover:bg-white/[0.06]'
                     }`}

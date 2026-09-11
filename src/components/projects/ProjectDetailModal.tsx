@@ -1,17 +1,16 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { 
-  X, 
-  ExternalLink, 
-  Github, 
-  CheckCircle, 
-  Cpu, 
-  Database, 
-  ShieldCheck, 
-  Zap, 
+import {
+  X,
+  ExternalLink,
+  Github,
+  CheckCircle,
+  Cpu,
+  Database,
+  ShieldCheck,
+  Zap,
   BookOpen,
   Server,
-  Layers,
   Code
 } from 'lucide-react';
 import { Project } from '../../types';
@@ -26,15 +25,14 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({ project,
 
   return (
     <AnimatePresence>
-      <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 overflow-y-auto bg-black/80 backdrop-blur-md">
+      <div className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-6 overflow-y-auto bg-black/80 backdrop-blur-md">
         <motion.div
           initial={{ opacity: 0, scale: 0.95, y: 20 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.95, y: 20 }}
           transition={{ duration: 0.3 }}
-          className="relative w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-3xl bg-[#0d0f15] border border-white/[0.12] shadow-2xl text-zinc-200"
+          className="relative w-full max-w-4xl max-h-[calc(100dvh-1rem)] sm:max-h-[90vh] overflow-y-auto rounded-2xl sm:rounded-3xl bg-[#0d0f15] border border-white/[0.12] shadow-2xl text-zinc-200"
         >
-          {/* Close Floating Button */}
           <button
             onClick={onClose}
             id="close-project-modal"
@@ -44,17 +42,16 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({ project,
             <X className="w-5 h-5" />
           </button>
 
-          {/* Modal Header Banner */}
-          <div className="relative h-64 sm:h-72 w-full overflow-hidden">
+          <div className="relative h-52 sm:h-72 w-full overflow-hidden">
             <img
               src={project.coverImage}
               alt={project.title}
               className="w-full h-full object-cover object-center filter brightness-75 contrast-105"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-[#0d0f15] via-[#0d0f15]/50 to-transparent" />
-            
-            <div className="absolute bottom-6 left-6 right-6">
-              <div className="flex items-center gap-2 mb-2">
+
+            <div className="absolute bottom-4 sm:bottom-6 left-4 sm:left-6 right-14 sm:right-6">
+              <div className="flex flex-wrap items-center gap-2 mb-2">
                 <span className="px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 text-xs font-mono capitalize">
                   {project.category}
                 </span>
@@ -71,11 +68,9 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({ project,
             </div>
           </div>
 
-          {/* Modal Body */}
-          <div className="p-6 sm:p-8 space-y-8">
-            
-            {/* Quick Links & Live Actions Bar */}
-            <div className="flex flex-wrap items-center justify-between gap-4 p-4 rounded-2xl bg-white/[0.02] border border-white/[0.06]">
+          <div className="p-4 sm:p-8 space-y-6 sm:space-y-8">
+
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-4 rounded-2xl bg-white/[0.02] border border-white/[0.06]">
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 flex-1">
                 {project.metrics.map((m, idx) => (
                   <div key={idx}>
@@ -85,12 +80,12 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({ project,
                 ))}
               </div>
 
-              <div className="flex items-center gap-2">
+              <div className="flex w-full sm:w-auto items-center gap-2">
                 <a
                   href={project.githubUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-1.5 px-4 py-2 rounded-xl bg-white/[0.05] hover:bg-white/[0.1] text-xs font-medium text-white border border-white/[0.08] transition-colors"
+                  className="flex flex-1 sm:flex-none items-center justify-center gap-1.5 px-4 py-2 rounded-xl bg-white/[0.05] hover:bg-white/[0.1] text-xs font-medium text-white border border-white/[0.08] transition-colors"
                 >
                   <Github className="w-4 h-4" />
                   <span>GitHub</span>
@@ -100,7 +95,7 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({ project,
                     href={project.liveUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-1.5 px-4 py-2 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-xs font-bold text-black shadow-lg shadow-emerald-500/20 transition-colors"
+                  className="flex flex-1 sm:flex-none items-center justify-center gap-1.5 px-4 py-2 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-xs font-bold text-black shadow-lg shadow-emerald-500/20 transition-colors"
                   >
                     <ExternalLink className="w-4 h-4" />
                     <span>Live Demo</span>
@@ -109,7 +104,6 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({ project,
               </div>
             </div>
 
-            {/* Problem & Solution Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="p-5 rounded-2xl bg-red-950/10 border border-red-500/20">
                 <h3 className="text-sm font-bold uppercase tracking-wider text-red-400 font-mono mb-2 flex items-center gap-2">
@@ -132,7 +126,6 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({ project,
               </div>
             </div>
 
-            {/* Key Features List */}
             <div>
               <h3 className="text-base font-bold text-white mb-3 flex items-center gap-2">
                 <CheckCircle className="w-4 h-4 text-emerald-400" />
@@ -151,7 +144,6 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({ project,
               </div>
             </div>
 
-            {/* System Architecture Flow */}
             <div className="p-6 rounded-2xl bg-white/[0.02] border border-white/[0.08]">
               <h3 className="text-base font-bold text-white mb-2 flex items-center gap-2">
                 <Server className="w-4 h-4 text-emerald-400" />
@@ -170,9 +162,7 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({ project,
               </div>
             </div>
 
-            {/* Database & API Specifications */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-              {/* Database Schema Notes */}
               <div className="p-5 rounded-2xl bg-white/[0.02] border border-white/[0.06]">
                 <h4 className="text-sm font-bold text-white mb-3 flex items-center gap-2">
                   <Database className="w-4 h-4 text-purple-400" />
@@ -183,7 +173,6 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({ project,
                 </p>
               </div>
 
-              {/* API Endpoints */}
               <div className="p-5 rounded-2xl bg-white/[0.02] border border-white/[0.06]">
                 <h4 className="text-sm font-bold text-white mb-3 flex items-center gap-2">
                   <Code className="w-4 h-4 text-blue-400" />
@@ -196,11 +185,10 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({ project,
                       className="p-2.5 rounded-xl bg-black/40 border border-white/[0.04] text-xs font-mono"
                     >
                       <div className="flex items-center gap-2">
-                        <span className={`px-1.5 py-0.5 rounded text-[10px] font-bold ${
-                          ep.method === 'GET' ? 'bg-blue-500/20 text-blue-400' :
+                        <span className={`px-1.5 py-0.5 rounded text-[10px] font-bold ${ep.method === 'GET' ? 'bg-blue-500/20 text-blue-400' :
                           ep.method === 'POST' ? 'bg-emerald-500/20 text-emerald-400' :
-                          'bg-amber-500/20 text-amber-400'
-                        }`}>
+                            'bg-amber-500/20 text-amber-400'
+                          }`}>
                           {ep.method}
                         </span>
                         <span className="text-zinc-200">{ep.path}</span>
@@ -212,9 +200,7 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({ project,
               </div>
             </div>
 
-            {/* Performance, Security & Lessons */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              {/* Performance */}
               <div className="p-4 rounded-xl bg-white/[0.02] border border-white/[0.05]">
                 <h4 className="text-xs font-bold text-white mb-2 flex items-center gap-1.5">
                   <Zap className="w-3.5 h-3.5 text-amber-400" />
@@ -230,7 +216,6 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({ project,
                 </ul>
               </div>
 
-              {/* Security */}
               <div className="p-4 rounded-xl bg-white/[0.02] border border-white/[0.05]">
                 <h4 className="text-xs font-bold text-white mb-2 flex items-center gap-1.5">
                   <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
@@ -246,7 +231,6 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({ project,
                 </ul>
               </div>
 
-              {/* Lessons Learned */}
               <div className="p-4 rounded-xl bg-white/[0.02] border border-white/[0.05]">
                 <h4 className="text-xs font-bold text-white mb-2 flex items-center gap-1.5">
                   <BookOpen className="w-3.5 h-3.5 text-blue-400" />
@@ -263,7 +247,6 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({ project,
               </div>
             </div>
 
-            {/* Complete Tech Stack Matrix */}
             <div className="p-4 rounded-xl bg-white/[0.02] border border-white/[0.06]">
               <span className="text-xs font-mono uppercase tracking-wider text-zinc-400 block mb-2">
                 Complete Technology Stack

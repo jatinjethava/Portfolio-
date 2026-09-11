@@ -67,7 +67,7 @@ export const Projects: React.FC<ProjectsProps> = ({ projects, onSelectProject })
             </p>
           </div>
 
-          <div className="flex flex-wrap gap-2 mt-6 md:mt-0">
+          <div className="mobile-scroll-row flex w-full md:w-auto flex-nowrap overflow-x-auto gap-2 mt-6 md:mt-0 pb-1">
             {filterTabs.map((tab) => {
               const Icon = tab.icon;
               const isSelected = activeCategory === tab.id;
@@ -76,7 +76,7 @@ export const Projects: React.FC<ProjectsProps> = ({ projects, onSelectProject })
                   key={tab.id}
                   id={`project-filter-${tab.id}`}
                   onClick={() => setActiveCategory(tab.id)}
-                  className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-medium transition-all ${isSelected
+                  className={`flex shrink-0 items-center gap-1.5 px-3 py-2 md:py-1.5 rounded-xl text-xs font-medium transition-all ${isSelected
                     ? 'bg-emerald-500 text-black font-semibold shadow-lg shadow-emerald-500/20'
                     : 'bg-white/[0.03] text-zinc-400 hover:text-white border border-white/[0.08] hover:bg-white/[0.06]'
                     }`}
