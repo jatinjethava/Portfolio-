@@ -65,40 +65,43 @@ class MailService {
         this.transporter = liveTransport;
         this.activeMode = 'smtp_live';
         this.isInitialized = true;
+        console.log('[MailService] Live SMTP transport initialized for:', smtpUser);
         return this.transporter;
       } catch (err) {
         console.warn('[MailService] Live SMTP initialization note:', (err as Error).message);
       }
+    } else {
+      console.warn('[MailService] No SMTP credentials configured (SMTP_USER / SMTP_PASS are empty). Using simulated fallback.');
     }
 
-    try {
-      const testAccount = await nodemailer.createTestAccount();
-      const testTransport = nodemailer.createTransport({
-        host: testAccount.smtp.host,
-        port: testAccount.smtp.port,
-        secure: testAccount.smtp.secure,
-        auth: {
-          user: testAccount.user,
-          pass: testAccount.pass,
-        },
-      });
-
-      this.transporter = testTransport;
-      this.activeMode = 'ethereal_test';
-      this.isInitialized = true;
-      return this.transporter;
-    } catch (testErr) {
-      console.warn('[MailService] Test transport creation failed, using JSON transport:', (testErr as Error).message);
-      this.transporter = nodemailer.createTransport({
-        jsonTransport: true,
-      });
-      this.activeMode = 'simulated_fallback';
-      this.isInitialized = true;
-      return this.transporter;
-    }
+    // Skip Ethereal test account creation — it makes external HTTP calls that
+    // frequently timeout in serverless environments (Vercel) and crash the function.
+    // Go straight to the safe JSON transport fallback.
+    console.log('[MailService] Using JSON transport fallback (no external calls).');
+    this.transporter = nodemailer.createTransport({
+      jsonTransport: true,
+    });
+    this.activeMode = 'simulated_fallback';
+    this.isInitialized = true;
+    return this.transporter;
   }
 
   public async sendContactInquiry(options: SendMailOptions): Promise<MailDeliveryResult> {
+    try {
+      return await this._sendContactInquiryInternal(options);
+    } catch (err) {
+      console.error('[MailService] Critical error in sendContactInquiry:', err);
+      return {
+        success: false,
+        mode: this.activeMode,
+        adminDelivered: false,
+        autoReplyDelivered: false,
+        error: (err as Error).message || 'Unknown mail service error',
+      };
+    }
+  }
+
+  private async _sendContactInquiryInternal(options: SendMailOptions): Promise<MailDeliveryResult> {
     const { name, email, subject, message, submissionId, ip = '127.0.0.1' } = options;
     const transporter = await this.getTransporter();
 
@@ -264,5 +267,6 @@ class MailService {
     };
   }
 }
+
 
 export const mailService = new MailService();

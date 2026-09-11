@@ -8,16 +8,16 @@ class RedisService {
   private rateLimitMap = new Map<string, { count: number; resetAt: number }>();
 
   constructor() {
-    const isCloudOrProd = config.env === 'production' || !!process.env.VERCEL;
-    const isLocalRedis = !config.redisUrl || config.redisUrl.includes('localhost') || config.redisUrl.includes('127.0.0.1');
-
-    // In serverless / cloud without an external Redis URL, use fast in-memory store
-    if (isCloudOrProd && isLocalRedis) {
-      console.log('[RedisService] Cloud serverless detected without remote Redis. Using in-memory caching & rate limiter.');
-      return;
-    }
-
     try {
+      const isCloudOrProd = config.env === 'production' || !!process.env.VERCEL;
+      const isLocalRedis = !config.redisUrl || config.redisUrl.includes('localhost') || config.redisUrl.includes('127.0.0.1');
+
+      // In serverless / cloud without an external Redis URL, use fast in-memory store
+      if (isCloudOrProd && isLocalRedis) {
+        console.log('[RedisService] Cloud serverless detected without remote Redis. Using in-memory caching & rate limiter.');
+        return;
+      }
+
       this.client = new Redis(config.redisUrl, {
         lazyConnect: true,
         maxRetriesPerRequest: 1,
@@ -37,8 +37,10 @@ class RedisService {
       this.client.on('error', (_err) => {
         this.isConnected = false;
       });
-    } catch {
+    } catch (err) {
       this.isConnected = false;
+      this.client = null;
+      console.warn('[RedisService] Constructor failed, using in-memory fallback:', (err as Error).message);
     }
   }
 
