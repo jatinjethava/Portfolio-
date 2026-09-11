@@ -226,7 +226,7 @@ class MailService {
       <p style="margin-bottom: 0;">Best regards,<br><strong style="color: #ffffff;">Jatin Jethava</strong><br><span style="color: #94a3b8; font-size: 12px;">Full-Stack &amp; MERN Software Engineer</span></p>
     </div>
     <div class="footer">
-      Jatin Jethava &bull; Portfolio &bull; Ahmedabad, Gujarat, India
+      Jatin Jethava &bull; Portfolio &bull; Surat, Gujarat, India
     </div>
   </div>
 </body>
