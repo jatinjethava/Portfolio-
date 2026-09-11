@@ -32,29 +32,42 @@ class MailService {
 
     const { smtpHost, smtpPort, smtpSecure, smtpUser, smtpPass } = config.email;
 
-    if (smtpHost && smtpUser && smtpPass) {
+    if (smtpUser && smtpPass) {
       try {
-        const liveTransport = nodemailer.createTransport({
-          host: smtpHost,
-          port: smtpPort || 587,
-          secure: smtpSecure,
-          auth: {
-            user: smtpUser,
-            pass: smtpPass,
-          },
-          tls: {
-            rejectUnauthorized: config.env === 'production',
-          },
-        });
+        const isGmail = (smtpHost && smtpHost.includes('gmail')) || smtpUser.includes('gmail');
 
-        await liveTransport.verify();
+        const liveTransport = nodemailer.createTransport(
+          isGmail
+            ? {
+              service: 'gmail',
+              auth: {
+                user: smtpUser,
+                pass: smtpPass,
+              },
+              tls: {
+                rejectUnauthorized: false,
+              },
+            }
+            : {
+              host: smtpHost || 'smtp.gmail.com',
+              port: smtpPort || 465,
+              secure: smtpSecure !== undefined ? smtpSecure : true,
+              auth: {
+                user: smtpUser,
+                pass: smtpPass,
+              },
+              tls: {
+                rejectUnauthorized: false,
+              },
+            }
+        );
+
         this.transporter = liveTransport;
         this.activeMode = 'smtp_live';
         this.isInitialized = true;
-        console.log(`[MailService] Live SMTP transport verified successfully (${smtpHost}:${smtpPort})`);
         return this.transporter;
       } catch (err) {
-        console.warn('[MailService] Live SMTP verification failed, falling back to test transport:', (err as Error).message);
+        console.warn('[MailService] Live SMTP initialization note:', (err as Error).message);
       }
     }
 
@@ -73,10 +86,9 @@ class MailService {
       this.transporter = testTransport;
       this.activeMode = 'ethereal_test';
       this.isInitialized = true;
-      console.log(`[MailService] Ethereal test transporter initialized for sandbox (${testAccount.user})`);
       return this.transporter;
     } catch (testErr) {
-      console.warn('[MailService] Ethereal creation failed, using JSON transport:', (testErr as Error).message);
+      console.warn('[MailService] Test transport creation failed, using JSON transport:', (testErr as Error).message);
       this.transporter = nodemailer.createTransport({
         jsonTransport: true,
       });

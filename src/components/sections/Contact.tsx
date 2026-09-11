@@ -12,6 +12,7 @@ import {
   MapPin
 } from 'lucide-react';
 import confetti from 'canvas-confetti';
+import { toast } from 'sonner';
 import { profileData } from '../../data/profile';
 import { apiService } from '../../services/api';
 
@@ -93,7 +94,9 @@ export const Contact: React.FC<ContactProps> = ({ initialSubject = '' }) => {
         });
       }
     } catch (err: unknown) {
-      setErrorMessage((err as Error).message || 'Failed to submit contact message.');
+      const msg = (err as Error).message || 'Failed to submit contact message.';
+      setErrorMessage(msg);
+      toast.error(msg);
     } finally {
       setSubmitting(false);
     }
@@ -275,7 +278,7 @@ export const Contact: React.FC<ContactProps> = ({ initialSubject = '' }) => {
                         id="contact-name"
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                        placeholder="Sarah Connor"
+                        placeholder="Jatin Jethava"
                         className="w-full px-4 py-2.5 rounded-xl bg-white/[0.03] border border-white/[0.08] focus:border-emerald-500/60 focus:bg-white/[0.05] text-white text-xs placeholder:text-zinc-600 outline-none transition-all"
                       />
                       {errors.name && <p className="text-[11px] text-red-400 mt-1">{errors.name}</p>}
@@ -290,7 +293,7 @@ export const Contact: React.FC<ContactProps> = ({ initialSubject = '' }) => {
                         id="contact-email"
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        placeholder="s.connor@cyberdyne.io"
+                        placeholder="jatinjethava3125@gmail.com"
                         className="w-full px-4 py-2.5 rounded-xl bg-white/[0.03] border border-white/[0.08] focus:border-emerald-500/60 focus:bg-white/[0.05] text-white text-xs placeholder:text-zinc-600 outline-none transition-all"
                       />
                       {errors.email && <p className="text-[11px] text-red-400 mt-1">{errors.email}</p>}
@@ -326,6 +329,13 @@ export const Contact: React.FC<ContactProps> = ({ initialSubject = '' }) => {
                     />
                     {errors.message && <p className="text-[11px] text-red-400 mt-1">{errors.message}</p>}
                   </div>
+
+                  {errorMessage && (
+                    <div className="p-3 rounded-xl bg-red-500/10 border border-red-500/20 text-red-400 text-xs font-mono flex items-center gap-2">
+                      <AlertCircle className="w-4 h-4 shrink-0 text-red-400" />
+                      <span>{errorMessage}</span>
+                    </div>
+                  )}
 
                   <button
                     type="submit"

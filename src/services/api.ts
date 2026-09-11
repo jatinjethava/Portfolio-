@@ -21,7 +21,6 @@ export const getStoredSubmissions = (): ContactSubmission[] => {
     const parsed = JSON.parse(raw);
     if (!Array.isArray(parsed)) return [];
 
-    // Filter out mock/demo inquiries (Sarah Lin, David Chen) if previously stored in browser
     const realSubmissions = parsed.filter(
       (sub: ContactSubmission) =>
         sub.id !== 'sub-1' &&

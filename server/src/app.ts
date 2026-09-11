@@ -9,6 +9,8 @@ export const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use('/api/v1', apiV1Router);
+app.use('/v1', apiV1Router);
+app.use('/api', apiV1Router);
 
 const distPath = path.join(process.cwd(), 'dist');
 console.log(distPath)
