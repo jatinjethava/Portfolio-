@@ -10,41 +10,33 @@ const STORAGE_KEYS = {
   SITE_SETTINGS: 'portfolio_site_settings_v1',
 };
 
-const INITIAL_SUBMISSIONS: ContactSubmission[] = [
-  {
-    id: 'sub-1',
-    name: 'Sarah Lin',
-    email: 'sarah.lin@techscale.io',
-    subject: 'Senior Full-Stack Engineer Role at Series B Fintech',
-    message: 'Hi Jatin, came across your OmniScale Commerce architecture. We are scaling our Stripe microservice and would love to chat regarding a lead engineering position.',
-    timestamp: new Date(Date.now() - 1000 * 60 * 60 * 18).toISOString(),
-    read: false,
-    status: 'new',
-    ip: '104.28.19.42'
-  },
-  {
-    id: 'sub-2',
-    name: 'David Chen',
-    email: 'dchen@meridianretail.com',
-    subject: 'E-Commerce Platform Architecture Consulting',
-    message: 'We are experiencing deadlocks in our checkout inventory during peak sales. We would like to contract you for an architecture overhaul and Redis caching implementation.',
-    timestamp: new Date(Date.now() - 1000 * 60 * 60 * 48).toISOString(),
-    read: true,
-    status: 'reviewed',
-    ip: '198.51.100.73'
-  }
-];
+const INITIAL_SUBMISSIONS: ContactSubmission[] = [];
 
 export const getStoredSubmissions = (): ContactSubmission[] => {
   try {
     const raw = localStorage.getItem(STORAGE_KEYS.SUBMISSIONS);
     if (!raw) {
-      localStorage.setItem(STORAGE_KEYS.SUBMISSIONS, JSON.stringify(INITIAL_SUBMISSIONS));
-      return INITIAL_SUBMISSIONS;
+      return [];
     }
-    return JSON.parse(raw);
+    const parsed = JSON.parse(raw);
+    if (!Array.isArray(parsed)) return [];
+
+    // Filter out mock/demo inquiries (Sarah Lin, David Chen) if previously stored in browser
+    const realSubmissions = parsed.filter(
+      (sub: ContactSubmission) =>
+        sub.id !== 'sub-1' &&
+        sub.id !== 'sub-2' &&
+        sub.email !== 'sarah.lin@techscale.io' &&
+        sub.email !== 'dchen@meridianretail.com'
+    );
+
+    if (realSubmissions.length !== parsed.length) {
+      localStorage.setItem(STORAGE_KEYS.SUBMISSIONS, JSON.stringify(realSubmissions));
+    }
+
+    return realSubmissions;
   } catch {
-    return INITIAL_SUBMISSIONS;
+    return [];
   }
 };
 
