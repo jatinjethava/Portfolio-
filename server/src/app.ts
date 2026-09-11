@@ -12,16 +12,17 @@ app.use('/api/v1', apiV1Router);
 app.use('/v1', apiV1Router);
 app.use('/api', apiV1Router);
 
-const distPath = path.join(process.cwd(), 'dist');
-console.log(distPath)
-if (fs.existsSync(distPath)) {
+if (!process.env.VERCEL) {
+  const distPath = path.join(process.cwd(), 'dist');
+  if (fs.existsSync(distPath)) {
     app.use(express.static(distPath));
     app.get('*', (req, res, next) => {
-        if (req.path.startsWith('/api')) {
-            return next();
-        }
-        res.sendFile(path.join(distPath, 'index.html'));
+      if (req.path.startsWith('/api')) {
+        return next();
+      }
+      res.sendFile(path.join(distPath, 'index.html'));
     });
+  }
 }
 
 app.use(errorHandler);
