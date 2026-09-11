@@ -66,7 +66,7 @@ function expressApiPlugin(): Plugin {
     name: 'vite-plugin-express-api',
     async configureServer(server) {
       try {
-        const { app } = await import('./server/src/app');
+        const { app } = await import('./server/src/app.js');
         server.middlewares.use(app);
       } catch (err) {
         console.error('[Vite] Failed to initialize Express API middleware:', err);

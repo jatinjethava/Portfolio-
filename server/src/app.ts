@@ -1,8 +1,8 @@
 import express from 'express';
 import path from 'path';
 import fs from 'fs';
-import { apiV1Router } from './routes/apiV1';
-import { errorHandler } from './middleware/errorHandler';
+import { apiV1Router } from './routes/apiV1.js';
+import { errorHandler } from './middleware/errorHandler.js';
 
 export const app = express();
 

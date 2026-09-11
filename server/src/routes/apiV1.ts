@@ -1,10 +1,10 @@
 import { Router, Request, Response } from 'express';
 import path from 'path';
 import fs from 'fs';
-import { rateLimiter } from '../middleware/rateLimiter';
-import { requireAdmin } from '../middleware/auth';
-import { redisClient } from '../services/redisService';
-import { mailService } from '../services/mailService';
+import { rateLimiter } from '../middleware/rateLimiter.js';
+import { requireAdmin } from '../middleware/auth.js';
+import { redisClient } from '../services/redisService.js';
+import { mailService } from '../services/mailService.js';
 
 export const apiV1Router = Router();
 

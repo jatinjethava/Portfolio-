@@ -1,5 +1,5 @@
 import nodemailer, { Transporter } from 'nodemailer';
-import { config } from '../config';
+import { config } from '../config/index.js';
 
 export interface SendMailOptions {
   name: string;
