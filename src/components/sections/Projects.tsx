@@ -49,7 +49,7 @@ export const Projects: React.FC<ProjectsProps> = ({ projects, onSelectProject })
 
   return (
     <section id="projects" className="py-24 relative bg-[#090b10] border-t border-white/[0.06]">
-      <div className="absolute top-1/2 left-0 w-96 h-96 bg-emerald-500/5 blur-[140px] rounded-full pointer-events-none" />
+      <div className="absolute top-1/2 left-0 w-[min(24rem,80vw)] h-96 bg-emerald-500/5 blur-[140px] rounded-full pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
@@ -76,7 +76,7 @@ export const Projects: React.FC<ProjectsProps> = ({ projects, onSelectProject })
                   key={tab.id}
                   id={`project-filter-${tab.id}`}
                   onClick={() => setActiveCategory(tab.id)}
-                  className={`flex shrink-0 items-center gap-1.5 px-3 py-2 md:py-1.5 rounded-xl text-xs font-medium transition-all ${isSelected
+                  className={`flex shrink-0 whitespace-nowrap items-center gap-1.5 px-3 py-2 md:py-1.5 rounded-xl text-xs font-medium transition-all ${isSelected
                     ? 'bg-emerald-500 text-black font-semibold shadow-lg shadow-emerald-500/20'
                     : 'bg-white/[0.03] text-zinc-400 hover:text-white border border-white/[0.08] hover:bg-white/[0.06]'
                     }`}

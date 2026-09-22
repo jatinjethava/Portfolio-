@@ -106,7 +106,7 @@ export const Footer: React.FC<FooterProps> = ({ onAdminClick }) => {
                 P99 Latency: <span className="text-emerald-400">18ms</span> (Redis Cached)
               </div>
               <div className="text-zinc-400">
-                Stack: React 19 • Node.js • Express • MongoDB • Other Related Technologies
+                Stack: React 19 • Node.js • Express • MongoDB • Other Tech
               </div>
               <div className="pt-2">
                 <button

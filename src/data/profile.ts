@@ -5,7 +5,7 @@ export const profileData: Profile = {
   roleTitle: 'MERN Stack Developer',
   secondaryTitle: 'Full-Stack Developer',
   location: 'Surat, Gujarat, India',
-  experienceYears: 0,
+  experienceYears: "4 Months",
   avatarUrl: '/myImage.jpeg',
   status: {
     isAvailable: true,
@@ -48,7 +48,7 @@ export const profileData: Profile = {
       label: 'Frontend Development', value: '4+', helper: 'Responsive web interfaces'
     },
     {
-      label: 'REST APIs', value: '300+', helper: 'Built with Node & Express'
+      label: 'REST APIs', value: '200+', helper: 'Built with Node & Express'
     },
     {
       label: 'Database', value: 'MongoDB', helper: 'Mongoose & data modeling'

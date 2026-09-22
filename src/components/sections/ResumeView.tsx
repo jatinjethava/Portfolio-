@@ -85,7 +85,7 @@ export const ResumeView: React.FC = () => {
             </p>
           </div>
 
-          <div className="flex flex-wrap sm:flex-nowrap items-center gap-2 w-full lg:w-auto">
+          <div className="flex flex-wrap items-center gap-2 w-full lg:w-auto">
             <div className="hidden md:flex items-center p-1 rounded-xl bg-zinc-900/90 border border-white/[0.08] text-xs font-mono shrink-0">
               <button
                 onClick={() => setLayoutMode('spread')}
@@ -249,17 +249,17 @@ export const ResumeView: React.FC = () => {
               <div className={`flex flex-wrap items-center gap-y-1.5 gap-x-3 text-xs font-mono mt-2.5 ${isPaper ? 'text-zinc-700' : 'text-zinc-300'
                 }`}>
                 <span className="flex items-center gap-1.5">
-                  <Phone className={`w-3.5 h-3.5 ${isPaper ? 'text-zinc-700' : 'text-emerald-400'}`} />
+                  <Phone className={`w-3.5 h-3.5 shrink-0 ${isPaper ? 'text-zinc-700' : 'text-emerald-400'}`} />
                   <span>Phone: <strong className={isPaper ? 'text-zinc-900' : 'text-zinc-100'}>{RESUME_INFO.phone}</strong></span>
                 </span>
-                <span className={isPaper ? 'text-zinc-300' : 'text-zinc-600'}>|</span>
+                <span className={`hidden sm:inline ${isPaper ? 'text-zinc-300' : 'text-zinc-600'}`}>|</span>
                 <span className="flex items-center gap-1.5">
-                  <Mail className={`w-3.5 h-3.5 ${isPaper ? 'text-zinc-700' : 'text-emerald-400'}`} />
-                  <span>Email: <a href={`mailto:${RESUME_INFO.email}`} className={`hover:underline ${isPaper ? 'text-emerald-700 font-medium' : 'text-emerald-400'}`}>{RESUME_INFO.email}</a></span>
+                  <Mail className={`w-3.5 h-3.5 shrink-0 ${isPaper ? 'text-zinc-700' : 'text-emerald-400'}`} />
+                  <span className="break-all">Email: <a href={`mailto:${RESUME_INFO.email}`} className={`hover:underline ${isPaper ? 'text-emerald-700 font-medium' : 'text-emerald-400'}`}>{RESUME_INFO.email}</a></span>
                 </span>
-                <span className={isPaper ? 'text-zinc-300' : 'text-zinc-600'}>|</span>
+                <span className={`hidden sm:inline ${isPaper ? 'text-zinc-300' : 'text-zinc-600'}`}>|</span>
                 <span className="flex items-center gap-1.5">
-                  <Github className={`w-3.5 h-3.5 ${isPaper ? 'text-zinc-700' : 'text-emerald-400'}`} />
+                  <Github className={`w-3.5 h-3.5 shrink-0 ${isPaper ? 'text-zinc-700' : 'text-emerald-400'}`} />
                   <span>GitHub: <a href={RESUME_INFO.github} target="_blank" rel="noopener noreferrer" className={`hover:underline ${isPaper ? 'text-emerald-700 font-medium' : 'text-emerald-400'}`}>{RESUME_INFO.githubDisplay}</a></span>
                 </span>
               </div>
@@ -288,7 +288,7 @@ export const ResumeView: React.FC = () => {
                 </h2>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-y-2.5 gap-x-6 sm:gap-x-8 text-xs sm:text-[13px] font-mono">
+              <div className="grid grid-cols-1 min-[420px]:grid-cols-2 sm:grid-cols-3 gap-y-2.5 gap-x-6 sm:gap-x-8 text-xs sm:text-[13px] font-mono">
                 <div className="space-y-2">
                   <div className={`flex items-center gap-2 ${isPaper ? 'text-zinc-800' : 'text-zinc-300'}`}>
                     <span className={`font-bold ${isPaper ? 'text-zinc-900' : 'text-emerald-400'}`}>-&gt;</span>

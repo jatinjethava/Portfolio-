@@ -72,7 +72,7 @@ export const Skills: React.FC = () => {
                   key={cat.id}
                   id={`skill-filter-${cat.id}`}
                   onClick={() => setSelectedCategory(cat.id)}
-                className={`flex shrink-0 items-center gap-1.5 px-3.5 py-2 md:py-1.5 rounded-xl text-xs font-medium transition-all ${isSelected
+                  className={`flex shrink-0 whitespace-nowrap items-center gap-1.5 px-3.5 py-2 md:py-1.5 rounded-xl text-xs font-medium transition-all ${isSelected
                     ? 'bg-emerald-500 text-black font-semibold shadow-lg shadow-emerald-500/20'
                     : 'bg-white/[0.03] text-zinc-400 hover:text-white border border-white/[0.08] hover:bg-white/[0.06]'
                     }`}
@@ -108,11 +108,11 @@ export const Skills: React.FC = () => {
                     className="p-4 rounded-2xl bg-white/[0.02] border border-white/[0.08] hover:border-white/[0.18] hover:bg-white/[0.035] transition-all flex flex-col justify-between group"
                   >
                     <div>
-                      <div className="flex items-center justify-between mb-2">
+                      <div className="flex flex-wrap items-center justify-between gap-x-2 gap-y-1 mb-2">
                         <span className="text-base font-bold text-white group-hover:text-emerald-300 transition-colors">
                           {skill.name}
                         </span>
-                        <div className="flex items-center gap-2">
+                        <div className="flex items-center gap-2 shrink-0">
                           <span className="text-[10px] font-mono text-zinc-400">
                             {(skill.experienceYears === "fresher") ? "fresher" : `${skill.experienceYears}y`} exp
                           </span>

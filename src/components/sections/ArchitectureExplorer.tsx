@@ -148,7 +148,7 @@ export const ArchitectureExplorer: React.FC = () => {
             <div className="mobile-scroll-row flex w-full sm:w-auto flex-nowrap overflow-x-auto items-center gap-2 pb-1">
               <button
                 onClick={() => handleTestApi('getProjects')}
-                className={`shrink-0 px-3 py-2 sm:py-1 rounded-lg text-xs font-mono transition-all ${selectedEndpoint === 'getProjects'
+                className={`shrink-0 whitespace-nowrap px-3 py-2 sm:py-1 rounded-lg text-xs font-mono transition-all ${selectedEndpoint === 'getProjects'
                   ? 'bg-emerald-500 text-black font-bold'
                   : 'bg-white/[0.04] text-zinc-400 hover:text-white'
                   }`}
@@ -157,7 +157,7 @@ export const ArchitectureExplorer: React.FC = () => {
               </button>
               <button
                 onClick={() => handleTestApi('getSkills')}
-                className={`shrink-0 px-3 py-2 sm:py-1 rounded-lg text-xs font-mono transition-all ${selectedEndpoint === 'getSkills'
+                className={`shrink-0 whitespace-nowrap px-3 py-2 sm:py-1 rounded-lg text-xs font-mono transition-all ${selectedEndpoint === 'getSkills'
                   ? 'bg-emerald-500 text-black font-bold'
                   : 'bg-white/[0.04] text-zinc-400 hover:text-white'
                   }`}
@@ -166,7 +166,7 @@ export const ArchitectureExplorer: React.FC = () => {
               </button>
               <button
                 onClick={() => handleTestApi('contact')}
-                className={`shrink-0 px-3 py-2 sm:py-1 rounded-lg text-xs font-mono transition-all ${selectedEndpoint === 'contact'
+                className={`shrink-0 whitespace-nowrap px-3 py-2 sm:py-1 rounded-lg text-xs font-mono transition-all ${selectedEndpoint === 'contact'
                   ? 'bg-emerald-500 text-black font-bold'
                   : 'bg-white/[0.04] text-zinc-400 hover:text-white'
                   }`}

@@ -57,7 +57,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#07090e] text-zinc-100 font-sans selection:bg-emerald-500 selection:text-black">
+    <div className="min-h-screen bg-[#07090e] text-zinc-100 font-sans selection:bg-emerald-500 selection:text-black overflow-x-hidden">
       <Toaster richColors closeButton={true} duration={2000} />
       <Navbar onAdminClick={() => setIsAdminOpen(true)} />
 

@@ -84,7 +84,7 @@ export interface Profile {
   roleTitle: string;
   secondaryTitle: string;
   location: string;
-  experienceYears: number;
+  experienceYears: number | string;
   avatarUrl: string;
   status: {
     isAvailable: boolean;

@@ -1,7 +1,5 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
 
-// Lightweight diagnostic endpoint — no Express, no imports, no deps.
-// Hit /api/debug to confirm the Vercel function runtime is working.
 export default function handler(_req: VercelRequest, res: VercelResponse) {
     const diag: Record<string, unknown> = {
         ok: true,
@@ -21,7 +19,6 @@ export default function handler(_req: VercelRequest, res: VercelResponse) {
         memoryMB: Math.round(process.memoryUsage().heapUsed / 1024 / 1024),
     };
 
-    // Try to import the express app and report success/failure
     import('../server/src/app')
         .then(() => {
             diag.expressImport = 'SUCCESS';

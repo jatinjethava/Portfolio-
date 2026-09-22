@@ -356,14 +356,14 @@ export const Contact: React.FC<ContactProps> = ({ initialSubject = '' }) => {
                     )}
                   </button>
 
-                  <div className="pt-1 flex flex-wrap items-center justify-between gap-x-2 gap-y-1 text-[11px] font-mono text-zinc-500">
+                  <div className="pt-1 flex flex-wrap items-center justify-center sm:justify-between gap-x-2 gap-y-1 text-[11px] font-mono text-zinc-500">
                     <span className="flex items-center gap-1">
                       <ShieldCheck className="w-3 h-3 text-emerald-400/80" />
                       <span>Nodemailer SMTP Pool</span>
                     </span>
-                    <span className="text-zinc-600">&bull;</span>
+                    <span className="text-zinc-600 hidden sm:inline">&bull;</span>
                     <span>Direct Express Router</span>
-                    <span className="text-zinc-600">&bull;</span>
+                    <span className="text-zinc-600 hidden sm:inline">&bull;</span>
                     <span>TLS 1.3 Encrypted</span>
                   </div>
                 </form>

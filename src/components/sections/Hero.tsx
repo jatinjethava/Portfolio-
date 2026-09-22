@@ -36,8 +36,8 @@ export const Hero: React.FC<HeroProps> = ({
 
   return (
     <section id="top" className="relative min-h-[92vh] pt-24 pb-16 flex flex-col justify-between overflow-hidden bg-[#090a0f] bg-grid-pattern">
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[min(600px,120vw)] h-[350px] bg-emerald-500/10 blur-[130px] rounded-full pointer-events-none -z-10" />
-      <div className="absolute top-1/3 right-10 w-[min(400px,100vw)] h-[250px] bg-blue-500/5 blur-[120px] rounded-full pointer-events-none -z-10" />
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[min(600px,90vw)] h-[350px] bg-emerald-500/10 blur-[130px] rounded-full pointer-events-none -z-10" />
+      <div className="absolute top-1/3 right-0 w-[min(400px,60vw)] h-[250px] bg-blue-500/5 blur-[120px] rounded-full pointer-events-none -z-10" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex-1 flex flex-col justify-center relative z-10">
 
@@ -60,10 +60,10 @@ export const Hero: React.FC<HeroProps> = ({
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/[0.04] border border-white/[0.08] text-zinc-300 text-xs font-mono"
+              className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/[0.04] border border-white/[0.08] text-zinc-300 text-xs font-mono max-w-full"
             >
-              <Terminal className="w-3.5 h-3.5 text-emerald-400" />
-              <span>MERN Stack Developer • React.js • Node.js • Express.js • MongoDB</span>
+              <Terminal className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+              <span className="truncate">MERN Stack Developer • React.js • Node.js • Express.js • MongoDB</span>
             </motion.div>
           </div>
 
@@ -100,10 +100,10 @@ export const Hero: React.FC<HeroProps> = ({
               transition={{ duration: 0.6, delay: 0.2 }}
               className="mb-5 select-none"
             >
-              <h1 className="text-3xl min-[380px]:text-4xl sm:text-5xl md:text-6xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-black font-display uppercase tracking-tight leading-[0.95] text-white sm:whitespace-nowrap">
+              <h1 className="text-3xl min-[380px]:text-4xl sm:text-5xl md:text-6xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-black font-display uppercase tracking-tight leading-[0.95] text-white">
                 Full-Stack
               </h1>
-              <div className="text-3xl min-[380px]:text-4xl sm:text-5xl md:text-6xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-black font-display uppercase tracking-tight leading-[0.95] text-stroke-outline hover:text-stroke-outline-accent transition-all duration-300 cursor-default sm:whitespace-nowrap">
+              <div className="text-3xl min-[380px]:text-4xl sm:text-5xl md:text-6xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-black font-display uppercase tracking-tight leading-[0.95] text-stroke-outline hover:text-stroke-outline-accent transition-all duration-300 cursor-default">
                 &amp; Architect
               </div>
             </motion.div>
