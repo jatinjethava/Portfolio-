@@ -95,7 +95,6 @@
   color: transparent;
 }
 
-/* Mobile scroll row — hidden scrollbar + touch scrolling */
 .mobile-scroll-row {
   scrollbar-width: none;
   -webkit-overflow-scrolling: touch;

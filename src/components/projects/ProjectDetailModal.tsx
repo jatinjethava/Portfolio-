@@ -95,7 +95,7 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({ project,
                     href={project.liveUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                  className="flex flex-1 sm:flex-none items-center justify-center gap-1.5 px-4 py-2 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-xs font-bold text-black shadow-lg shadow-emerald-500/20 transition-colors"
+                    className="flex flex-1 sm:flex-none items-center justify-center gap-1.5 px-4 py-2 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-xs font-bold text-black shadow-lg shadow-emerald-500/20 transition-colors"
                   >
                     <ExternalLink className="w-4 h-4" />
                     <span>Live Demo</span>

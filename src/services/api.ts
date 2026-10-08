@@ -6,7 +6,7 @@ import { toast } from 'sonner';
 const STORAGE_KEYS = {
   SUBMISSIONS: 'portfolio_contact_submissions_v1',
   ADMIN_TOKEN: 'portfolio_admin_jwt_v1',
-  PROJECTS: 'portfolio_projects_custom_v1',
+  PROJECTS: 'portfolio_projects_custom_v3',
   SITE_SETTINGS: 'portfolio_site_settings_v1',
 };
 
@@ -46,7 +46,44 @@ export const getStoredProjects = (): Project[] => {
       localStorage.setItem(STORAGE_KEYS.PROJECTS, JSON.stringify(projectsData));
       return projectsData;
     }
-    return JSON.parse(raw);
+    const parsed: Project[] = JSON.parse(raw);
+    if (!Array.isArray(parsed)) {
+      localStorage.setItem(STORAGE_KEYS.PROJECTS, JSON.stringify(projectsData));
+      return projectsData;
+    }
+
+    const customProjects = parsed.filter((p) => !projectsData.some((d) => d.id === p.id));
+    const merged = [
+      ...projectsData.map((codeProj) => {
+        const storedProj = parsed.find((p) => p.id === codeProj.id);
+        if (!storedProj) return codeProj;
+        return {
+          ...storedProj,
+          coverImage: codeProj.coverImage,
+          githubUrl: codeProj.githubUrl,
+          liveUrl: codeProj.liveUrl,
+          title: codeProj.title,
+          subtitle: codeProj.subtitle,
+          category: codeProj.category,
+          featured: codeProj.featured,
+          description: codeProj.description,
+          problem: codeProj.problem,
+          solution: codeProj.solution,
+          keyFeatures: codeProj.keyFeatures,
+          techStack: codeProj.techStack,
+          metrics: codeProj.metrics,
+          architecture: codeProj.architecture,
+          performanceNotes: codeProj.performanceNotes,
+          securityNotes: codeProj.securityNotes,
+          lessonsLearned: codeProj.lessonsLearned,
+          date: codeProj.date,
+        };
+      }),
+      ...customProjects,
+    ];
+
+    localStorage.setItem(STORAGE_KEYS.PROJECTS, JSON.stringify(merged));
+    return merged;
   } catch {
     return projectsData;
   }

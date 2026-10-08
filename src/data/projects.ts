@@ -2,6 +2,71 @@ import { Project } from '../types';
 
 export const projectsData: Project[] = [
   {
+    id: 'proj-7',
+    slug: 'vidfetch-atelier',
+    title: 'VidFetch Atelier',
+    subtitle: 'Universal Video Extraction Suite & Multi-Portal Media Downloader',
+    category: 'fullstack',
+    featured: true,
+    coverImage: '/image.png',
+    description: 'A master-grade media extraction suite engineered for high-fidelity preservation. Seamlessly inspects and extracts video and audio streams from YouTube, Instagram, TikTok, X (Twitter), Facebook, and direct media CDNs in 4K, 1080p, and studio-grade 320kbps MP3 with zero watermark contamination.',
+    problem: 'Modern video platforms lock media behind dynamic manifests, proprietary CDN segmentations, and strict browser CORS policies — making lossless media archival and clean audio extraction without watermarks or generational transcoding degradation exceptionally challenging.',
+    solution: 'Architected a luxury, high-throughput extraction platform with Next.js 16 App Router and a decoupled Node.js Express stream extraction engine. Implemented in-flight chunked TCP stream piping to bypass CORS restrictions, automated platform detection, and pure 320kbps audio isolation.',
+    keyFeatures: [
+      'Multi-portal ingestion supporting YouTube (4K UHD/Shorts), Instagram Reels, TikTok (no watermark), X/Twitter, and direct MP4/WebM storage links',
+      'High-throughput in-flight chunked stream proxy injecting dynamic Content-Disposition headers to bypass browser CORS constraints',
+      'Multi-tier quality selector offering 4K UHD, 1080p Full HD, 720p HD, and 480p with native container codecs (H.264, VP9, AV1)',
+      'Studio 320kbps MP3 acoustic track extraction for lossless standalone audio downloads',
+      'Luxury editorial interface built with Next.js, dark-mode obsidian & brushed gold aesthetics, and fluid Framer Motion animations',
+      'Ephemeral zero-retention memory buffering guaranteeing zero disk persistence and complete user privacy'
+    ],
+    techStack: {
+      frontend: ['Next.js 16', 'React 19', 'TypeScript', 'Tailwind CSS', 'Framer Motion'],
+      backend: ['Node.js', 'Express.js', 'Stream Piping', 'REST APIs'],
+      database: ['In-Memory Cache', 'Ephemeral Buffers'],
+      devops: ['Vercel', 'Docker', 'Git']
+    },
+    metrics: [
+      { label: 'Quality', value: '4K UHD / 60FPS' },
+      { label: 'Audio Bitrate', value: '320kbps MP3' },
+      { label: 'Portals', value: '6+ Platforms' },
+      { label: 'Watermark', value: '0% (Clean)' }
+    ],
+    architecture: {
+      overview: 'Decoupled frontend (Next.js App Router) and backend (Node.js/Express) stream processing engine. The client identifies portal schemas and requests extraction manifests; the server streams chunked binary data in-flight without intermediate disk writes.',
+      flowSteps: [
+        'User pastes a video link from YouTube, Instagram, TikTok, X, or direct CDN',
+        'Frontend detects platform signature and initiates server stream decomposition',
+        'Backend extracts media manifests, adaptive bitrate tracks, and metadata',
+        'User selects target resolution tier (4K, 1080p) or studio MP3 audio',
+        'Chunked proxy pipes raw media bytes directly to browser with attachment headers'
+      ],
+      databaseSchemaNotes: 'Stateless architecture utilizing in-memory cache and ephemeral byte streams; no persistent disk storage or user activity logging.',
+      apiEndpoints: [
+        { method: 'POST', path: '/api/video/analyze', description: 'Decomposes video URL into format manifests and metadata' },
+        { method: 'GET', path: '/api/video/stream-proxy', description: 'Proxies chunked video stream in-flight with CORS bypass headers' },
+        { method: 'GET', path: '/api/video/audio-extract', description: 'Isolates and streams pure 320kbps MP3 acoustic track' },
+        { method: 'GET', path: '/api/health', description: 'Monitors extraction engine status and stream pipeline latency' }
+      ]
+    },
+    performanceNotes: [
+      'In-flight chunked streaming avoids disk I/O bottlenecks and minimizes server memory footprint',
+      'Next.js Turbopack and client-side manifest caching provide instantaneous UI response',
+      'Lightweight SVG vector assets and optimized fonts minimize initial page load'
+    ],
+    securityNotes: [
+      'Strict URL sanitization and regex validation preventing SSRF and malicious loopback exploits',
+      'Ephemeral memory buffering with zero file persistence ensures complete data privacy'
+    ],
+    lessonsLearned: [
+      'Learned to manage chunked HTTP range requests and stream piping across heterogeneous CDN topologies',
+      'Overcame browser CORS download barriers through server-side attachment streaming'
+    ],
+    githubUrl: 'https://github.com/jatinjethava/Video-Downloader-Frontend',
+    liveUrl: 'https://download-via-link.vercel.app/',
+    date: '2026'
+  },
+  {
     id: 'proj-1',
     slug: 'vastra-verse',
     title: 'Vastra Verse',
